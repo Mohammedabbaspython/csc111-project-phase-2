@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class Member {
     // declaring the private attributes
     // user info + borrowed (should never reset)
@@ -48,24 +47,11 @@ public class Member {
     }
 
     //resets the users session statistics
-    public void reset(Scanner input)
-    {   
-        //prompts the user to make sure he wants to reset
-        System.out.println("ARE YOU SURE YOU WANT TO RESET YOUR DATA? (y/n):\n");
-        char resetAnswer = input.next().charAt(0);
-        if (resetAnswer == 'y' || resetAnswer == 'Y')
-        {
-            System.out.println("RESETING YOUR DATA...");
-            this.numBorrows = 0;
-            this.numReturns = 0;
-            this.sessionFees = 0;
-            this.numReturns = 0;
-            System.out.println("DATA RESET COMPLETE");
-        }
-        else
-        {
-            System.out.println("Data wasnt reset.");
-        }
-
+    public void reset()
+    {
+        this.numBorrows = 0;
+        this.numReturns = 0;
+        this.sessionFees = 0;
+        this.numReturns = 0;
     }
 }
