@@ -1,5 +1,12 @@
+import java.util.Scanner;
+
 public class LibrarySimulator {
-    public static void main (String[] args) {        
+    // initializing input Scanner
+    public static Scanner input = new Scanner(System.in);
+
+    public static void main (String[] args) {
+
+        input.close();
     }
 
     public static void displayMainMenu() {
@@ -34,5 +41,22 @@ public class LibrarySimulator {
         System.out.println("\t 1 id: " + user1.getId() + " name: " + user1.getName());
         System.out.println("\t 2 id: " + user2.getId() + " name: " + user2.getName());
         System.out.println("\t 3 id: " + user3.getId()+ " name: " + user3.getName());
+    }
+
+    public static int takeChoiceInput(int numOfOptions) {
+        int choice = 1;
+
+        do {
+            System.out.print("Choose an option: ");
+            choice = input.nextInt();
+            
+            // invalid input message
+            if (choice < 1 || choice > numOfOptions) {
+                System.out.println("\t Invalid input. Please enter an integer between 1 and " + numOfOptions);
+            }
+            
+        } while (choice < 1 || choice > numOfOptions);
+   
+        return choice;
     }
 }
