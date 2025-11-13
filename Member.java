@@ -15,6 +15,14 @@ public class Member {
     public static int TotalBorrows;
     public static int TotalReturns;
 
+    // Getters
+    public int getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 
     
 }
