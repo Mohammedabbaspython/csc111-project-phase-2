@@ -24,5 +24,9 @@ public class Member {
         return this.name;
     }
 
+    public int getBorrowedCount() {
+        return this.borrowedCount;
+    }
+
     
 }
