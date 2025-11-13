@@ -33,7 +33,8 @@ public class Member {
     public void ViewBorrowedCount()
     {
         System.out.println("You are currently borrowing " + borrowedCount + " books.");
-        numViewBorrowed += 1;
+        ++numViewBorrowed;
+        ++TotalViewBorrowed;
     }
 
     //lets the user check their session statistics
