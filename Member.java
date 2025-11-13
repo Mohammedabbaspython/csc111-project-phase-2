@@ -28,5 +28,30 @@ public class Member {
         return this.borrowedCount;
     }
 
-    
+    //lets the user check how many books they currently have borrowed
+    public void ViewBorrowedCount()
+    {
+        System.out.println("You are currently borrowing " + borrowedCount + " books.");
+        ++numViewBorrowed;
+        ++TotalViewBorrowed;
+    }
+
+    //lets the user check their session statistics
+    public void DisplayStatistics()
+    {
+        System.out.println("Session Summary:");
+        System.out.println("\tBorrowed Books: " + this.numBorrows);
+        System.out.println("\tReturned Books: " + this.numReturns);
+        System.out.println("\tTotal fees incurred: " + this.sessionFees);
+        System.out.println("\tYou've checked your borrows " + numViewBorrowed + " times.");
+    }
+
+    //resets the users session statistics
+    public void reset()
+    {
+        this.numBorrows = 0;
+        this.numReturns = 0;
+        this.sessionFees = 0;
+        this.numReturns = 0;
+    }
 }
