@@ -15,6 +15,15 @@ public class Member {
     public static int TotalBorrows;
     public static int TotalReturns;
 
+    // Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     // Getters
     public int getId() {
         return this.id;
