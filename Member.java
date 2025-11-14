@@ -23,7 +23,7 @@ public class Member {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     // Getters
     public int getId() {
         return this.id;
@@ -36,13 +36,58 @@ public class Member {
     public int getBorrowedCount() {
         return this.borrowedCount;
     }
+    // canBorrow checks if the member can borrow one more book
 
+
+    // canReturn checks if the member can return a book
+
+
+    // Simulating borrowing one book and returns true if the operation was successful
+    public boolean borrowOne() {
+        if (canBorrow()) {
+            // increment the number of books borrowed
+            borrowedCount++;
+            // add the borrowing fee to the total revenue;
+            TotalRevenue += 0.5;
+            sessionFees += 0.5;
+            // increment the total borrow operations count
+            numBorrows++;
+            TotalBorrows++;
+
+            // feedback
+            System.out.println("\t You have successfully borrowed a book.");
+            return true;
+        }
+
+        // borrow count >= 5 
+        System.out.println("\t Sorry you have reached the maximum amount of borrowed books.");
+        return false;
+    }
+
+    // Simulating returning one book and returns true if the operation was successful
+    public boolean returnOne() {
+        if (canReturn()) {
+            // decrement the number of books borrowed
+            borrowedCount--;
+            // incrementing the return operations count
+            TotalReturns++;
+            numReturns++;
+            // feedback
+            System.out.println("\t You have returned a book.");
+            return true;
+        }
+
+        // borrow count == 0
+        System.out.println("\t Sorry you have no borrowed books to return.");
+        return false;
+
+    }
     //lets the user check how many books they currently have borrowed
     public void ViewBorrowedCount()
     {
         System.out.println("You are currently borrowing " + borrowedCount + " books.");
-        ++numViewBorrowed;
-        ++TotalViewBorrowed;
+        numViewBorrowed++;
+        TotalViewBorrowed++;
     }
 
     //lets the user check their session statistics
