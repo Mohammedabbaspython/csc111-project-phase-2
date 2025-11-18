@@ -129,5 +129,6 @@ public class Member {
         this.numReturns = 0;
         this.sessionFees = 0;
         this.numReturns = 0;
+        numViewBorrowed = 0;
     }
 }
