@@ -14,7 +14,29 @@ public class Member {
     public static int TotalViewBorrowed;
     public static int TotalBorrows;
     public static int TotalReturns;
-
+    // Constructor
+    public Member(int id, String name, int borrowedCount) {
+        setId(id);
+        setName(name);
+        if (borrowedCount > 5) // Sets the maximum to 5
+        {
+            borrowedCount = 5;
+            System.out.println("Borrowed count cannot be greater than 5. It will be reset to 5.");
+        }
+        if (borrowedCount < 0) // Sets the minimum to 0
+        {
+            borrowedCount = 0;
+            System.out.println("Borrowed count cannot be less than 0. It will be reset to 0.");
+        }
+    }
+    // checks if user can borrow
+    public boolean canBorrow() { 
+        return borrowedCount < 5;
+    }
+    // checks if user can return
+    public boolean canReturn() {
+        return borrowedCount > 0;
+    }
     // Setters
     public void setName(String name) {
         this.name = name;
