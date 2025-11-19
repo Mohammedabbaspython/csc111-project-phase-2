@@ -100,30 +100,10 @@ public class LibrarySimulator {
 
                     switch (choice) {
                         case 1: // view total revenue
-                            System.out.printf("\t The total revenue made is: %.2f %n", Member.TotalRevenue);
+                            adminViewRevenue();
                             break;
                         case 2: // Most frequent operation
-                            // getting the maximum value 
-                            int max = Member.TotalBorrows;
-
-                            if (Member.TotalReturns > max) {
-                                max = Member.TotalReturns;
-                            }
-
-                            if (Member.TotalViewBorrowed > max) {
-                                max = Member.TotalViewBorrowed;
-                            }
-
-                            System.out.println("The most used operations with " + max + " usages each are: ");
-                            if (Member.TotalBorrows == max) {
-                                System.out.println("Borrowing");
-                            }
-                            if (Member.TotalReturns == max) {
-                                System.out.println("Returning");
-                            }
-                            if (Member.TotalViewBorrowed == max) {
-                                System.out.println("Viewing Borrowed books");
-                            }
+                            adminMostFrequent();
                             break;
                     }
                 } while (choice != 3);
@@ -188,5 +168,33 @@ public class LibrarySimulator {
         } while (choice < 1 || choice > numOfOptions);
 
         return choice;
+    }
+    // admin View revenue
+    public static void adminViewRevenue() {
+        System.out.printf("\t The total revenue made is: %.2f %n", Member.TotalRevenue);
+    }
+    // Most frequent operation
+    public static void adminMostFrequent () {
+        // getting the maximum value 
+        int max = Member.TotalBorrows;
+
+        if (Member.TotalReturns > max) {
+            max = Member.TotalReturns;
+        }
+
+        if (Member.TotalViewBorrowed > max) {
+            max = Member.TotalViewBorrowed;
+        }
+
+        System.out.println("The most used operations with " + max + " usages each are: ");
+        if (Member.TotalBorrows == max) {
+            System.out.println("Borrowing");
+        }
+        if (Member.TotalReturns == max) {
+            System.out.println("Returning");
+        }
+        if (Member.TotalViewBorrowed == max) {
+            System.out.println("Viewing Borrowed books");
+        }
     }
 }
