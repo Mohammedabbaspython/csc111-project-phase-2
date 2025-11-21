@@ -153,21 +153,28 @@ public class LibrarySimulator {
         System.out.println("\t 3 id: " + user3.getId() + " name: " + user3.getName());
     }
 
+    // handles input for 1 to 9 choices
     public static int takeChoiceInput(int numOfOptions) {
-        int choice = 1;
+        char choice;
+        String raw;
 
-        do {
+        while (true) {
             System.out.print("Choose an option: ");
-            choice = input.nextInt();
+            raw = input.next();
 
-            // invalid input message
-            if (choice < 1 || choice > numOfOptions) {
-                System.out.println("\t Invalid input. Please enter an integer between 1 and " + numOfOptions);
+            choice = raw.charAt(0);
+
+
+
+            for (int i = 1; i <= numOfOptions && raw.length() == 1; i++) {
+                if (("" + i).indexOf(choice) == 0) {
+                    return i;
+                }
             }
 
-        } while (choice < 1 || choice > numOfOptions);
-
-        return choice;
+            // invalid input message
+            System.out.println("\t Invalid input. Please enter an integer between 1 and " + numOfOptions);
+        } 
     }
     // admin View revenue
     public static void adminViewRevenue() {
